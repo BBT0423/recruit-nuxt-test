@@ -3,6 +3,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+  // Static HTML for GitHub Pages; "/" falls back to 404.html (SPA) and redirects client-side
+  nitro: {
+    prerender: {
+      routes: ['/register', '/pattern'],
+      ignore: [/^\/$/]
+    }
+  },
   app: {
     head: {
       title: 'Nuxt App',
